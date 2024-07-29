@@ -45,16 +45,17 @@ public class Battle {
                         if (targetPokemon.isDefeated()) {
                             System.out.println(targetPokemon.getName() + " has been defeated!");
                             battleScore += targetPokemon.getMaxHp(); // Add the HP of defeated Pokémon to the score
+                            if (allWildPokemonsDefeated()) {
+                                break;
+                            }
                         }
                         j++;
                     } else {
                         System.out.println("You cannot attack a defeated Pokémon. Choose a different target.");
                     }
                 }
-            }
-
-            if (allWildPokemonsDefeated()) {
-                break;
+                else
+                    j++;
             }
 
             // Wild Pokémon's turn
@@ -147,6 +148,8 @@ public class Battle {
 
     private boolean allWildPokemonsDefeated() {
         for (Pokemon p : wildPokemons) {
+            System.out.println(p.getName());
+            System.out.println(p.isDefeated());
             if (p != null && !p.isDefeated()) {
                 return false;
             }
