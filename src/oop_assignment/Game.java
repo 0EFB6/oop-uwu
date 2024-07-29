@@ -260,14 +260,16 @@ public class Game {
             battleScore += extraBattleScore; // Add the extra battle score to the battle score
 
             // Generate a random Pokeball and allow the player to catch a Pokémon after the extra battle
-            generateRandomPokeballAndCatch(scanner, extraWildPokemons);
+            if (extraBattle.getResult() == 1) {
+                generateRandomPokeballAndCatch(scanner, extraWildPokemons);
+            }
         }
 
         player.addScore(battleScore); // Add the score to the player's total score
         scoreManager.addScore(player.getName(), player.getScore()); // Update the top scores
 
         // Generate a random Pokeball and allow the player to catch a Pokémon after the regular battle only if no extra battle occurred
-        if (!extraBattleOccurred) {
+        if (!extraBattleOccurred && battle.getResult() == 1) {
             generateRandomPokeballAndCatch(scanner, wildPokemons);
         }
     }

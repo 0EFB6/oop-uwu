@@ -9,6 +9,7 @@ public class Battle {
     private Pokemon[] wildPokemons;
     private Player player;
     private int battleScore;
+    private int result;
     private Scanner scanner;
     private Random random = new Random();
 
@@ -17,6 +18,7 @@ public class Battle {
         this.wildPokemons = wildPokemons;
         this.player = player;
         this.battleScore = 0;
+        this.result = 0;
         this.scanner = scanner;
     }
 
@@ -79,12 +81,17 @@ public class Battle {
         if (allPlayerPokemonsDefeated()) {
             System.out.println("\nAll your Pokémon have fainted. You lost the battle!");
         } else {
+            this.result = 1;
             System.out.println("\nYou defeated the wild Pokémon!");
         }
     }
 
     public int getBattleScore() {
         return battleScore;
+    }
+
+    public int getResult() {
+        return result;
     }
 
     private int calculatePlayerDamage(Pokemon attacker, Pokemon defender) {
