@@ -29,22 +29,24 @@ public class Battle {
         while (!allPlayerPokemonsDefeated() && !allWildPokemonsDefeated()) {
 
             // Player's turn
-            for (int i = 0; i < 2; i++) {
-                if (playerPokemons[i] != null && !playerPokemons[i].isDefeated()) {
-                    System.out.println("\nChoose which wild Pokémon " + player.getName() + "'s " + playerPokemons[i].getName() + " will attack:");
+            int j = 0;
+            while (j < 2) {
+                if (playerPokemons[j] != null && !playerPokemons[j].isDefeated()) {
+                    System.out.println("\nChoose which wild Pokémon " + player.getName() + "'s " + playerPokemons[j].getName() + " will attack:");
                     displayTargetOptions();
                     int targetChoice = getValidChoice(scanner, 1, 2);
 
                     Pokemon targetPokemon = (targetChoice == 1) ? wildPokemons[0] : wildPokemons[1];
 
                     if (!targetPokemon.isDefeated()) {
-                        int playerDamage = calculatePlayerDamage(playerPokemons[i], targetPokemon);
+                        int playerDamage = calculatePlayerDamage(playerPokemons[j], targetPokemon);
                         targetPokemon.setHp(targetPokemon.getHp() - playerDamage);
-                        System.out.println("\n" + player.getName() + "'s " + playerPokemons[i].getName() + " used " + playerPokemons[i].getMove() + " and dealt " + playerDamage + " damage to " + targetPokemon.getName());
+                        System.out.println("\n" + player.getName() + "'s " + playerPokemons[j].getName() + " used " + playerPokemons[j].getMove() + " and dealt " + playerDamage + " damage to " + targetPokemon.getName());
                         if (targetPokemon.isDefeated()) {
                             System.out.println(targetPokemon.getName() + " has been defeated!");
                             battleScore += targetPokemon.getMaxHp(); // Add the HP of defeated Pokémon to the score
                         }
+                        j++;
                     } else {
                         System.out.println("You cannot attack a defeated Pokémon. Choose a different target.");
                     }
