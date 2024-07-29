@@ -155,8 +155,6 @@ public class Battle {
 
     private boolean allWildPokemonsDefeated() {
         for (Pokemon p : wildPokemons) {
-            System.out.println(p.getName());
-            System.out.println(p.isDefeated());
             if (p != null && !p.isDefeated()) {
                 return false;
             }
