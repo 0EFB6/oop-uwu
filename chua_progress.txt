@@ -1,0 +1,8 @@
+Dratini,Dragon,50,10,50,1
+Dratini,Dragon,50,10,50,1
+Lucario,Fighting,36,16,36,2
+Charmander,Fire,39,16,39,1
+Eevee,Normal,35,8,35,1
+Meowth,Normal,35,15,35,1
+Gastly,Ghost,35,9,35,1
+Charmander,Fire,42,16,42,1

@@ -1,0 +1,4 @@
+hahaha
+Eevee,Normal,0,11,Quick Attack,33
+Pikachu,Electric,3,13,Thunder Shock,31
+Charmander,Fire,0,14,Flamethrower,42

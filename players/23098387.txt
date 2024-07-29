@@ -1,0 +1,4 @@
+imlengzai
+Pikachu,Electric,33,11,Thunder Shock,40
+Squirtle,Water,14,13,Water Gun,42
+Charmander,Fire,0,16,Flamethrower,48

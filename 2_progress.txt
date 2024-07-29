@@ -1,0 +1,2 @@
+Snorlax,Normal,68,17,68,1
+Charmander,Fire,39,14,39,1
