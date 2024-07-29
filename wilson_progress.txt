@@ -1,0 +1,2 @@
+Dratini,Dragon,31,15,31,1
+Dratini,Dragon,32,16,32,1
