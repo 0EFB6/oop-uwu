@@ -293,6 +293,7 @@ public class Game {
         System.out.println("You found a " + pokeball + "!");
 
         System.out.println("Would you like to use it to catch a Pokémon? (yes/no)");
+        scanner.nextLine();
         String choice = scanner.nextLine().trim().toLowerCase();
 
         if (choice.equals("yes")) {
