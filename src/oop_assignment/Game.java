@@ -357,7 +357,6 @@ public class Game {
                         }
                         chooseBattlePokemons(scanner);
                         battle(scanner);
-                        healAllPokemons();
                         break;
                     case 2:
                         GameUtil.clearTerminal();
