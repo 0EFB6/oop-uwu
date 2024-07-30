@@ -47,6 +47,7 @@ public class Battle {
                         else
                             targetPokemon.setHp(targetPokemon.getHp() - playerDamage);
                         System.out.println("\n" + player.getName() + "'s " + playerPokemons[j].getName() + " used " + playerPokemons[j].getMove() + " and dealt " + playerDamage + " damage to " + targetPokemon.getName());
+                        displayEffectiveness(playerPokemons[j].getType(), targetPokemon.getType());
                         if (targetPokemon.isDefeated()) {
                             System.out.println(targetPokemon.getName() + " has been defeated!");
                             battleScore += targetPokemon.getMaxHp(); // Add the HP of defeated Pokémon to the score
@@ -209,6 +210,17 @@ public class Battle {
             if (wildPokemons[i] != null && !wildPokemons[i].isDefeated()) {
                 System.out.println((i + 1) + ". " + wildPokemons[i]);
             }
+        }
+    }
+
+    private void displayEffectiveness(String attackerType, String defenderType) {
+        double effectiveness = Utils.getEffectiveness(attackerType, defenderType);
+        if (effectiveness > 1) {
+            System.out.println("It's super effective!");
+        } else if (effectiveness == 0) {
+            System.out.println("It has no effect...");
+        } else if (effectiveness < 1) {
+            System.out.println("It's not very effective...");
         }
     }
 }
