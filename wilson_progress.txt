@@ -1,3 +1,4 @@
 Dratini,Dragon,31,15,31,1
 Dratini,Dragon,32,16,32,1
 Machop,Fighting,39,15,39,1
+Machop,Fighting,42,8,42,1

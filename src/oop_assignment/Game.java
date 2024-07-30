@@ -319,9 +319,6 @@ public class Game {
                 System.out.println(chosenWildPokemon.getName() + " escaped!");
             }
         }
-
-        // Return to the main menu after the catch attempt
-        mainMenu(scanner);
     }
 
     private void mainMenu(Scanner scanner) {
