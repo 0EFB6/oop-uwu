@@ -300,7 +300,7 @@ public class Game {
             System.out.println("Invalid choice. Please enter 'yes' or 'no'.");
             choice = scanner.nextLine().trim().toLowerCase();
         }
-        
+
         if (choice.equals("yes")) {
             System.out.println("Choose a wild Pokémon to catch:");
             for (int i = 0; i < wildPokemons.length; i++) {
@@ -325,8 +325,7 @@ public class Game {
     }
 
     private void mainMenu(Scanner scanner) {
-        boolean exit = false;
-        while (!exit) {
+        while (true) {
             System.out.println();
             System.out.println("Choose an action:");
             System.out.println("1. Battle");
@@ -340,6 +339,7 @@ public class Game {
                 scanner.nextLine(); // Consume the newline character
                 switch (choice) {
                     case 1:
+                        healAllPokemons();
                         GameUtil.clearTerminal();
                         if (player.getPokemons().size() < 2) {
                             System.out.println("You need at least two Pokémon. Catch additional Pokémon.");
@@ -366,13 +366,12 @@ public class Game {
                         scoreManager.displayTopScores();
                         break;
                     case 4:
-                        exit = true;
                         try {
                             saveProgress();
                         } catch (Exception e) {
                             System.out.println("An error occurred while saving progress: " + e.getMessage());
                         }
-                        break;
+                        return;
                     default:
                         System.out.println("Invalid choice. Please choose a number between 1 and 4.");
                         break;
