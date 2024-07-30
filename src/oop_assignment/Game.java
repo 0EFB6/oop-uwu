@@ -332,6 +332,7 @@ public class Game {
 
             try {
                 int choice = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
                 switch (choice) {
                     case 1:
                         GameUtil.clearTerminal();
