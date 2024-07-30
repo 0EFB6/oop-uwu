@@ -42,7 +42,10 @@ public class Battle {
 
                     if (!targetPokemon.isDefeated()) {
                         int playerDamage = calculatePlayerDamage(playerPokemons[j], targetPokemon);
-                        targetPokemon.setHp(targetPokemon.getHp() - playerDamage);
+                        if (targetPokemon.getHp() - playerDamage < 0)
+                            targetPokemon.setHp(0);
+                        else
+                            targetPokemon.setHp(targetPokemon.getHp() - playerDamage);
                         System.out.println("\n" + player.getName() + "'s " + playerPokemons[j].getName() + " used " + playerPokemons[j].getMove() + " and dealt " + playerDamage + " damage to " + targetPokemon.getName());
                         if (targetPokemon.isDefeated()) {
                             System.out.println(targetPokemon.getName() + " has been defeated!");
@@ -66,7 +69,10 @@ public class Battle {
                     int targetIndex = random.nextBoolean() ? 0 : 1;
                     if (playerPokemons[targetIndex] != null && !playerPokemons[targetIndex].isDefeated()) {
                         int wildDamage = calculateWildDamage(wildPokemons[i], playerPokemons[targetIndex]);
-                        playerPokemons[targetIndex].setHp(playerPokemons[targetIndex].getHp() - wildDamage);
+                        if (playerPokemons[targetIndex].getHp() - wildDamage < 0)
+                            playerPokemons[targetIndex].setHp(0);
+                        else
+                            playerPokemons[targetIndex].setHp(playerPokemons[targetIndex].getHp() - wildDamage);
                         System.out.println("\nWild " + wildPokemons[i].getName() + " used " + wildPokemons[i].getMove() + " and dealt " + wildDamage + " damage to " + player.getName() + "'s " + playerPokemons[targetIndex].getName());
                         if (playerPokemons[targetIndex].isDefeated()) {
                             System.out.println(playerPokemons[targetIndex].getName() + " has been defeated!");
