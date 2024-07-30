@@ -263,6 +263,7 @@ public class Game {
             if (extraBattle.getResult() == 1) {
                 generateRandomPokeballAndCatch(scanner, extraWildPokemons);
             }
+            System.out.println("\nBattle finish! Your total score is: " + battleScore);
         }
 
         player.addScore(battleScore); // Add the score to the player's total score
@@ -271,6 +272,10 @@ public class Game {
         // Generate a random Pokeball and allow the player to catch a Pokémon after the regular battle only if no extra battle occurred
         if (!extraBattleOccurred && battle.getResult() == 1) {
             generateRandomPokeballAndCatch(scanner, wildPokemons);
+            System.out.println("\nBattle finish! Your total score is: " + battleScore);
+        }
+        else if (!extraBattleOccurred && battle.getResult() == 0) {
+            System.out.println("\nBattle finish! Your total score is: " + battleScore);
         }
     }
 
