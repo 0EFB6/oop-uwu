@@ -20,10 +20,10 @@ public class Game {
         this.scoreManager = scoreManager;
     }
 
-    public void startGame() {
+    public void startGame(Scanner scanner) {
         ensureUserDataFileExists();
-        loginOrRegister();
-        mainMenu();
+        loginOrRegister(scanner);
+        mainMenu(scanner);
     }
 
     private void ensureUserDataFileExists() {
@@ -37,7 +37,7 @@ public class Game {
         }
     }
 
-    private void loginOrRegister() {
+    private void loginOrRegister(Scanner scanner) {
         while (true) {
             System.out.println("Welcome to Pokemon Ga-Ole!");
             System.out.println("1. Login");
@@ -316,11 +316,12 @@ public class Game {
         }
 
         // Return to the main menu after the catch attempt
-        mainMenu();
+        mainMenu(scanner);
     }
 
-    private void mainMenu() {
-        while (true) {
+    private void mainMenu(Scanner scanner) {
+        boolean exit = false;
+        while (!exit) {
             System.out.println();
             System.out.println("Choose an action:");
             System.out.println("1. Battle");
@@ -331,7 +332,6 @@ public class Game {
 
             try {
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
                 switch (choice) {
                     case 1:
                         GameUtil.clearTerminal();
@@ -360,10 +360,16 @@ public class Game {
                         scoreManager.displayTopScores();
                         break;
                     case 4:
-                        saveProgress();
-                        return;
+                        exit = true;
+                        try {
+                            saveProgress();
+                        } catch (Exception e) {
+                            System.out.println("An error occurred while saving progress: " + e.getMessage());
+                        }
+                        break;
                     default:
                         System.out.println("Invalid choice. Please choose a number between 1 and 4.");
+                        break;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number between 1 and 4.");

@@ -1,4 +1,5 @@
 package oop_assignment;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +7,10 @@ public class Main {
         ScoreManager scoreManager = new ScoreManager();
 
         Game game = new Game(player, scoreManager);
-        game.startGame(); // Start the game with login/register interface
+        Scanner scanner = new Scanner(System.in);
+        game.startGame(scanner); // Start the game with login/register interface
+        scanner.close();
+        System.exit(0);
+        return;
     }
 }
