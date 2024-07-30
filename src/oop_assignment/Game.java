@@ -296,6 +296,11 @@ public class Game {
         scanner.nextLine();
         String choice = scanner.nextLine().trim().toLowerCase();
 
+        while (!choice.equals("yes") && !choice.equals("no")) {
+            System.out.println("Invalid choice. Please enter 'yes' or 'no'.");
+            choice = scanner.nextLine().trim().toLowerCase();
+        }
+        
         if (choice.equals("yes")) {
             System.out.println("Choose a wild Pokémon to catch:");
             for (int i = 0; i < wildPokemons.length; i++) {
